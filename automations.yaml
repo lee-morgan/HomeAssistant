@@ -1,0 +1,55 @@
+- id: startup
+  alias: '[System] Startup'
+  hide_entity: true
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+  - delay: 00:00:15
+  - service: python_script.set_state
+    data_template:
+      entity_id: person.ben
+      state: Unknown
+  - service: python_script.set_state
+    data_template:
+      entity_id: person.lee
+      state: Unknown
+  - service: python_script.set_state
+    data_template:
+      entity_id: person.lillie
+      state: Un'known
+  - service: python_script.set_state
+    data_template:
+      entity_id: person.julie
+      state: Unknown
+
+# - id: '1567876373081'
+#   alias: '[Lights] Bedside Lamp On At Night'
+#   hide_entity: true
+#   trigger:
+#   - platform: time
+#     at: '22:30'
+#   condition:
+#   - condition: state
+#     entity_id: person.lee
+#     state: home
+#   action:
+#   - service: switch.turn_on
+#     entity_id: switch.corner_lamp
+
+# - id: '1567877042923'
+#   alias: '[Bedroom2] Turn Fan On When Too Hot'
+#   hide_entity: true
+#   trigger:
+#   - above: '24'
+#     entity_id: sensor.bedroom2_temperature
+#     platform: numeric_state
+#   condition:
+#   - condition: state
+#     entity_id: person.lee
+#     state: home
+#   - condition: time
+#     after: '22:30'
+#   action:
+#   - entity_id: switch.lees_fan
+#     service: switch.turn_on

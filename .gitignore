@@ -1,0 +1,19 @@
+# Ignore Everything.
+*
+
+# Include these files.
+!*.yaml
+!.gitignore
+!*.md
+
+# Ignore these folders.
+.storage
+.cloud
+.google.token
+.HA_VERSION
+
+# Ignore these files.
+ip_bans.yaml
+secrets.yaml
+known_devices.yaml
+google_calendars.yaml

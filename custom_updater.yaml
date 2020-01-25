@@ -1,0 +1,7 @@
+  track:
+    - cards
+    - components
+  # show_installable: true
+  card_urls:
+    - https://raw.githubusercontent.com/MizterB/lovelace-secondaryinfo-entity-row/master/custom_cards.json
+    - https://raw.githubusercontent.com/ljmerza/calendar-card/master/custom_updater.json

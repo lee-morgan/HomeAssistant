@@ -1,0 +1,15 @@
+homeassistant:
+  name: Home
+  elevation: 159
+  unit_system: metric
+  time_zone: Europe/London
+  customize: !include customize/customize.yaml
+  customize_domain: !include customize/customize_domain.yaml
+  customize_glob: !include customize/customize_glob.yaml
+  packages: !include_dir_named packages
+  whitelist_external_dirs:
+    - '/config/'
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml

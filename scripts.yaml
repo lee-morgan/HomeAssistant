@@ -1,0 +1,45 @@
+sonos_say:
+  alias: Sonos TTS script
+  sequence:
+  - service: sonos.snapshot
+    data_template:
+      entity_id: '{{ sonos_entity }}'
+  - service: sonos.unjoin
+    data_template:
+      entity_id: '{{ sonos_entity }}'
+  - service: media_player.volume_set
+    data_template:
+      entity_id: '{{ sonos_entity }}'
+      volume_level: '{{ volume }}'
+  - service: tts.google_translate_say
+    data_template:
+      entity_id: '{{ sonos_entity }}'
+      message: '{{ message }}'
+  - delay: '{{ delay }}'
+  - service: sonos.restore
+    data_template:
+      entity_id: '{{ sonos_entity }}'
+livingroom_tv_app_netflix:
+  sequence:
+  - service: rest_command.livingroom_tv_app_netflix
+livingroom_tv_app_amazon:
+  sequence:
+  - service: rest_command.livingroom_tv_app_amazon
+livingroom_tv_app_youtube:
+  sequence:
+  - service: rest_command.livingroom_tv_app_youtube
+save_lights:
+  alias: Save light state
+  sequence:
+  - service: python_script.light_store
+    data_template:
+      store_name: '{{ store_name }}'
+      entity_id: '{{ entity_ids }}'
+restore_lights:
+  alias: Restore light state
+  sequence:
+  - service: python_script.light_store
+    data_template:
+      store_name: '{{ store_name }}'
+      operation: restore
+
