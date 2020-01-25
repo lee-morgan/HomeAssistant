@@ -1,0 +1,16 @@
+automation:
+  - alias: '[RemoteUI] Connect'
+    trigger:
+      - platform: state
+        entity_id: input_select.lee_status_dropdown
+        to: 'Away'
+    action:
+    - service: cloud.remote_connect
+
+  - alias: '[RemoteUI] Disconnect'
+    trigger:
+      - platform: state
+        entity_id: input_select.lee_status_dropdown
+        to: 'Home'
+    action:
+    - service: cloud.remote_disconnect

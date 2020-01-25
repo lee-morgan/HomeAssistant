@@ -1,0 +1,264 @@
+homeassistant:
+  customize:
+    sensor.lee_status:
+      entity_picture: '/local/images/people/daddy_home.png'
+    sensor.julie_status:
+      entity_picture: '/local/images/people/daddy_home.png'
+    sensor.lillie_status:
+      entity_picture: '/local/images/people/lillie_home.png'
+    sensor.ben_status:
+      entity_picture: '/local/images/people/ben_home.png'
+
+input_select:
+  lee_status_dropdown:
+    name: 'Daddy' 
+    options:
+      - Home
+      - Just Arrived
+      - Just Left
+      - Away
+      - Extended Away
+    initial: Home
+
+  julie_status_dropdown:
+    name: 'Mummy' 
+    options:
+      - Home
+      - Just Arrived
+      - Just Left
+      - Away
+      - Extended Away
+    initial: Home
+
+  lillie_status_dropdown:
+    name: 'Lillie' 
+    options:
+      - Home
+      - Just Arrived
+      - Just Left
+      - Away
+      - Extended Away
+    initial: Home
+
+  ben_status_dropdown:
+    name: 'Ben' 
+    options:
+      - Home
+      - Just Arrived
+      - Just Left
+      - Away
+      - Extended Away
+    initial: Home
+
+sensor:
+  - platform: template 
+    sensors:
+      lee_status:
+        value_template: '{{ states.input_select.lee_status_dropdown.state }}'
+        friendly_name: 'Daddy'
+
+      julie_status:
+        value_template: '{{ states.input_select.julie_status_dropdown.state }}'
+        friendly_name: 'Mummy'
+
+      lillie_status:
+        value_template: '{{ states.input_select.lillie_status_dropdown.state }}'
+        friendly_name: 'Lillie'
+        
+      ben_status:
+        value_template: '{{ states.input_select.ben_status_dropdown.state }}'
+        friendly_name: 'Ben'
+    
+automation:
+  - alias: '[Presence] Person Just Arrived'
+    trigger:
+      - platform: state
+        entity_id: person.lee
+        from: 'not_home'
+        to: 'home'
+      - platform: state
+        entity_id: person.julie
+        from: 'not_home'
+        to: 'home'
+      - platform: state
+        entity_id: person.lillie
+        from: 'not_home'
+        to: 'home'
+      - platform: state
+        entity_id: person.ben
+        from: 'not_home'
+        to: 'home'
+    action:
+      - service: input_select.select_option
+        data_template:
+          entity_id: >
+            {% if trigger.entity_id == 'person.lee' %}
+              input_select.lee_status_dropdown
+            {% elif trigger.entity_id == 'person.julie' %}
+              input_select.julie_status_dropdown
+            {% elif trigger.entity_id == 'person.lillie' %}
+              input_select.lillie_status_dropdown
+            {% else %}
+              input_select.ben_status_dropdown
+            {% endif %}
+          option: Just Arrived
+
+  - alias: '[Presence] Person Home'
+    trigger:
+      - platform: state
+        entity_id: input_select.lee_status_dropdown
+        to: 'Just Arrived'
+        for:
+          minutes: 5
+      - platform: state
+        entity_id: input_select.julie_status_dropdown
+        to: 'Just Arrived'
+        for:
+          minutes: 5
+      - platform: state
+        entity_id: input_select.lillie_status_dropdown
+        to: 'Just Arrived'
+        for:
+          minutes: 5
+      - platform: state
+        entity_id: input_select.ben_status_dropdown
+        to: 'Just Arrived'
+        for:
+          minutes: 5
+      - platform: state
+        entity_id: input_select.lee_status_dropdown
+        from: 'Just Left'
+        to: 'Just Arrived'
+      - platform: state
+        entity_id: input_select.julie_status_dropdown
+        from: 'Just Left'
+        to: 'Just Arrived'
+      - platform: state
+        entity_id: input_select.lillie_status_dropdown
+        from: 'Just Left'
+        to: 'Just Arrived'
+      - platform: state
+        entity_id: input_select.ben_status_dropdown
+        from: 'Just Left'
+        to: 'Just Arrived'
+    action:
+      - service: input_select.select_option
+        data_template:
+          entity_id: >
+            {% if trigger.entity_id == 'input_select.lee_status_dropdown' %}
+              input_select.lee_status_dropdown
+            {% elif trigger.entity_id == 'input_select.julie_status_dropdown' %}
+              input_select.julie_status_dropdown
+            {% elif trigger.entity_id == 'input_select.lillie_status_dropdown' %}
+              input_select.lillie_status_dropdown
+            {% else %}
+              input_select.ben_status_dropdown
+            {% endif %}
+          option: Home
+  
+  - alias: '[Presence] Person Just Left'
+    trigger:
+      - platform: state
+        entity_id: person.lee
+        from: 'home'
+        to: 'not_home'
+      - platform: state
+        entity_id: person.julie
+        from: 'home'
+        to: 'not_home'
+      - platform: state
+        entity_id: person.lillie
+        from: 'home'
+        to: 'not_home'
+      - platform: state
+        entity_id: person.ben
+        from: 'home'
+        to: 'not_home'
+    action:
+      - service: input_select.select_option
+        data_template:
+          entity_id: >
+            {% if trigger.entity_id == 'person.lee' %}
+              input_select.lee_status_dropdown
+            {% elif trigger.entity_id == 'person.julie' %}
+              input_select.julie_status_dropdown
+            {% elif trigger.entity_id == 'person.lillie' %}
+              input_select.lillie_status_dropdown
+            {% else %}
+              input_select.ben_status_dropdown
+            {% endif %}
+          option: Just Left
+  
+  - alias: '[Presence] Person Away'
+    trigger:
+      - platform: state
+        entity_id: input_select.lee_status_dropdown
+        to: 'Just Left'
+        for:
+          minutes: 5
+      - platform: state
+        entity_id: input_select.julie_status_dropdown
+        to: 'Just Left'
+        for:
+          minutes: 5
+      - platform: state
+        entity_id: input_select.lillie_status_dropdown
+        to: 'Just Left'
+        for:
+          minutes: 5
+      - platform: state
+        entity_id: input_select.ben_status_dropdown
+        to: 'Just Left'
+        for:
+          minutes: 5
+    action:
+      - service: input_select.select_option
+        data_template:
+          entity_id: >
+            {% if trigger.entity_id == 'input_select.lee_status_dropdown' %}
+              input_select.lee_status_dropdown
+            {% elif trigger.entity_id == 'input_select.julie_status_dropdown' %}
+              input_select.julie_status_dropdown
+            {% elif trigger.entity_id == 'input_select.lillie_status_dropdown' %}
+              input_select.lillie_status_dropdown
+            {% else %}
+              input_select.ben_status_dropdown
+            {% endif %}
+          option: Away
+  
+  - alias: '[Presence] Person Extended Away'
+    trigger:
+      - platform: state
+        entity_id: input_select.lee_status_dropdown
+        to: 'Away'
+        for:
+          hours: 24
+      - platform: state
+        entity_id: input_select.julie_status_dropdown
+        to: 'Away'
+        for:
+          hours: 24
+      - platform: state
+        entity_id: input_select.lillie_status_dropdown
+        to: 'Away'
+        for:
+          hours: 24
+      - platform: state
+        entity_id: input_select.ben_status_dropdown
+        to: 'Away'
+        for:
+          hours: 24
+    action:
+      - service: input_select.select_option
+        data_template:
+          entity_id: >
+            {% if trigger.entity_id == 'input_select.lee_status_dropdown' %}
+              input_select.lee_status_dropdown
+            {% elif trigger.entity_id == 'input_select.julie_status_dropdown' %}
+              input_select.julie_status_dropdown
+            {% elif trigger.entity_id == 'input_select.lillie_status_dropdown' %}
+              input_select.lillie_status_dropdown
+            {% else %}
+              input_select.ben_status_dropdown
+            {% endif %}
+          option: Extended Away

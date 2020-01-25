@@ -1,0 +1,6 @@
+zone:
+  - name: EMT
+    latitude: !secret ju_work_latitude
+    longitude: !secret ju_work_longitude
+    radius: 50
+    icon: mdi:train

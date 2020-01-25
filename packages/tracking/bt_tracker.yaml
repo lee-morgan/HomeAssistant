@@ -1,0 +1,6 @@
+device_tracker:
+  - platform: bluetooth_tracker 
+    request_rssi: true
+    interval_seconds: 15
+    consider_home: 150
+    track_new_devices: yes 

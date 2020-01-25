@@ -1,0 +1,25 @@
+homeassistant:
+  customize: 
+    sensor.home_assistant_log:
+      icon: mdi:file
+      friendly_name: 'Home Assistant Log'
+
+    sensor.home_assistant_v2_db:
+      icon: mdi:database
+      friendly_name: 'Home Assistant Database'
+
+    sensor.zigbee_db:
+      icon: mdi:database
+      friendly_name: 'Zigbee Database'
+
+    sensor.pyozw_sqlite:
+      icon: mdi:database
+      friendly_name: 'Z-Wave Database'
+
+sensor:
+ - platform: filesize
+   file_paths:
+    - /config/home-assistant_v2.db
+    - /config/home-assistant.log
+    - /config/zigbee.db
+    - /config/pyozw.sqlite 

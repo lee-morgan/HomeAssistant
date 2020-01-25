@@ -1,0 +1,6 @@
+### Pushover Notifications ###
+notify:
+  - name: mobile
+    platform: pushover
+    api_key: !secret pushover_api
+    user_key: !secret pushover_userkey 

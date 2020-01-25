@@ -1,0 +1,6 @@
+cast: 
+  media_player: 
+    - host: !secret bedroom1_chromecast
+    - host: !secret bedroom1_display
+    - host: !secret bedroom2_chromecast
+    - host: !secret bedroom2_display

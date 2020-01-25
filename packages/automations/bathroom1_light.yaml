@@ -1,0 +1,25 @@
+automation:
+  - alias: '[Motion] Ground Floor Bathroom Light'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.bathroom1_motion
+      to: 'on'
+    action:
+    - service: homeassistant.turn_on
+      data:
+        brightness: 255
+        rgb_color: [255,255,255]
+        entity_id: light.bathroom_light
+
+  - alias: '[Motion] Ground Floor Bathroom Light Auto Off'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.bathroom1_motion
+      to: 'off'
+      for:
+        seconds: 30
+    action:
+      - service: homeassistant.turn_off
+        entity_id: light.bathroom_light
+        data: 
+          transition: 10

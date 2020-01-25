@@ -1,0 +1,15 @@
+- name: Daddys Bedroom Normal
+  entities:
+      light.daddys_light:
+        state: on
+        profile: 'energize'
+        transition: 2
+        brightness_pct: 100
+
+- name: Daddys Bedroom Dim
+  entities:
+      light.daddys_light:
+        state: on
+        profile: 'relax'
+        transition: 2
+        brightness_pct: 25

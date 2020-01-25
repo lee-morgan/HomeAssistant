@@ -1,0 +1,35 @@
+
+
+
+
+group: 
+  alarm_lights:
+    name: Alarm Lights 
+    entities:
+      - light.lee_light
+      - light.hallway
+
+automation:
+  - alias: '[Alert] Garage Door Open'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.ground_floor_bathroom_motion
+      to: 'on'
+    action:
+      - service: homeassistant.turn_on
+        data: 
+          entity_id: group.alarm_lights
+          rgb_color: [255,0,0]
+          brightness: 255
+      - service: homeassistant.turn_on
+        data: 
+          entity_id: group.alarm_lights
+          flash: 'long'
+      - delay: '00:00:15'
+      - service: homeassistant.turn_on
+        data: 
+          entity_id: group.alarm_lights
+          rgb_color: [255,255,255]
+      - service: homeassistant.turn_off
+        data: 
+          entity_id: group.alarm_lights

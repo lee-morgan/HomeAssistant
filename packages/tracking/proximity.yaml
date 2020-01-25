@@ -1,0 +1,24 @@
+proximity:
+  home:
+    zone: home 
+    ignored_zones:
+      - emr
+      - sos 
+    devices:
+      - device_tracker.lee_phoe_gps
+    tolerance: 50
+    unit_of_measurement: mi
+
+  sos:
+    zone: sos 
+    devices:
+      - device_tracker.lee_phone_gps
+    tolerance: 50
+    unit_of_measurement: mi
+
+  emr:
+    zone: emr 
+    devices:
+      - device_tracker.lee_phone_gps
+    tolerance: 50
+    unit_of_measurement: mi

@@ -1,0 +1,162 @@
+homeassistant:
+  customize:
+#     sensor.system_sky_box:
+#       icon: mdi:set-top-box
+
+    sensor.system_lee_pc:
+      icon: mdi:desktop-tower-monitor
+
+    sensor.system_xbox_one:
+      icon: mdi:xbox
+
+    sensor.system_hue_bridge:
+      icon: mdi:set-top-box
+
+#     sensor.system_smartthings_hub:
+#       icon: mdi:set-top-box
+
+    sensor.system_lee_chromecast:
+      icon: mdi:google-chrome
+
+    sensor.system_lee_google_home_mini:
+      icon: mdi:google-home
+
+#     sensor.system_meshpoint_top_floor:
+#       icon: mdi:access-point-network
+
+#     sensor.system_meshpoint_ground_floor:
+#       icon: mdi:access-point-network
+
+    sensor.system_printer:
+      icon: mdi:printer
+
+#     sensor.system_julie_laptop:
+#       icon: mdi:laptop-windows
+
+#     sensor.system_lee_mac:
+#       icon: mdi:laptop-mac
+
+    sensor.system_xbox_360:
+      icon: mdi:xbox
+
+    sensor.system_pi_hole:
+      icon: mdi:pi-hole
+
+#     sensor.system_lee_remote_hub:
+#       icon: mdi:remote 
+
+#     sensor.system_julie_remote_hub:
+#       icon: mdi:remote 
+
+  customize_glob:
+    sensor.system_*:
+      templates:
+        icon_color: "if (state === 'Online') return 'rgb(0,180,0)';
+        else if (state === 'Unknown') return 'rgb(127,127,127)';
+        else if (state === 'Offline') return 'rgb(210,0,0)';"
+        
+sensor:
+  - platform: template
+    sensors:
+#       system_sky_box:
+#         friendly_name: Sky Q Box
+#         entity_id: "device_tracker.system_sky_box"
+#         value_template: "{{ 'Online' if is_state('device_tracker.system_sky_box', 'home') else 'Offline' }}"
+
+#       system_lee_remote_hub:
+#         friendly_name: Remote Hub
+#         entity_id: "device_tracker.system_lee_remote_hub"
+#         value_template: "{{ 'Online' if is_state('device_tracker.system_lee_remote_hub', 'home') else 'Offline' }}"
+
+#       system_julie_remote_hub:
+#         friendly_name: Remote Hub
+#         entity_id: "device_tracker.system_julie_remote_hub"
+#         value_template: "{{ 'Online' if is_state('device_tracker.system_julie_remote_hub', 'home') else 'Offline' }}"
+
+      system_lee_pc:
+        friendly_name: Lee PC
+        entity_id: "device_tracker.lee_pc"
+        value_template: "{{ 'Online' if is_state('device_tracker.lee_pc', 'home') else 'Offline' }}"
+
+      system_xbox_one:
+        friendly_name: Xbox One
+        entity_id: "device_tracker.xbox_one"
+        value_template: "{{ 'Online' if is_state('device_tracker.xbox_one', 'home') else 'Offline' }}"
+
+      system_hue_bridge:
+        friendly_name: Hue Bridge
+        entity_id: "device_tracker.hue_bridge"
+        value_template: "{{ 'Online' if is_state('device_tracker.hue_bridge', 'home') else 'Offline' }}"
+
+#       system_smartthings_hub:
+#         friendly_name: Smartthings Hub
+#         entity_id: "device_tracker.system_smartthings_hub"
+#         value_template: "{{ 'Online' if is_state('device_tracker.smartthings_hub', 'home') else 'Offline' }}"
+
+      system_lee_chromecast:
+        friendly_name: Chromecast
+        entity_id: "device_tracker.lee_chromecast"
+        value_template: "{{ 'Online' if is_state('device_tracker.lee_chromecast', 'home') else 'Offline' }}"
+
+      system_lee_google_home_mini:
+        friendly_name: Google Home Mini
+        entity_id: "device_tracker.lee_google_home_mini"
+        value_template: "{{ 'Online' if is_state('device_tracker.lee_google_home_mini', 'home') else 'Offline' }}"
+
+#       system_meshpoint_top_floor:
+#         friendly_name: Amplifi Meshpoint
+#         entity_id: "device_tracker.system_meshpoint_top_floor"
+#         value_template: "{{ 'Online' if is_state('device_tracker.system_meshpoint_top_floor', 'home') else 'Offline' }}"
+
+#       system_meshpoint_ground_floor:
+#         friendly_name: Amplifi Meshpoint
+#         entity_id: "device_tracker.system_meshpoint_ground_floor"
+#         value_template: "{{ 'Online' if is_state('device_tracker.system_meshpoint_ground_floor', 'home') else 'Offline' }}"
+
+      system_printer:
+        friendly_name: HP Printer
+        entity_id: "device_tracker.hp_printer"
+        value_template: "{{ 'Online' if is_state('device_tracker.hp_printer', 'home') else 'Offline' }}"
+
+#       system_julie_laptop:
+#         friendly_name: Julie Laptop
+#         entity_id: "device_tracker.system_julie_laptop"
+#         value_template: "{{ 'Online' if is_state('device_tracker.system_julie_laptop', 'home') else 'Offline' }}"
+
+#       system_lee_mac:
+#         friendly_name: Lee iMac
+#         entity_id: "device_tracker.system_lee_mac"
+#         value_template: "{{ 'Online' if is_state('device_tracker.system_lee_mac', 'home') else 'Offline' }}"
+
+      system_xbox_360:
+        friendly_name: Xbox 360
+        entity_id: "device_tracker.xbox_360"
+        value_template: "{{ 'Online' if is_state('device_tracker.xbox_360', 'home') else 'Offline' }}"
+
+      system_pi_hole:
+        friendly_name: Pi Hole
+        entity_id: "device_tracker.pi_hole"
+        value_template: "{{ 'Online' if is_state('device_tracker.pi_hole', 'home') else 'Offline' }}"
+
+### Disable this whilst testing as notifications do my nut in ###
+# automation:
+#   - alias: '[System] Device Status Notification'
+#     initial_state: 'on'
+#     trigger:
+#       - platform: state
+#         entity_id:
+#           - sensor.system_lee_pc
+#           - sensor.system_lee_chromecast
+#           - sensor.system_lee_google_home_mini
+#           - sensor.system_lee_chromecast
+#           - sensor.system_hue_bridge       
+#           - sensor.system_pi_hole 
+#           - sensor.system_printer
+#         to: 'Offline'
+#         for:
+#           minutes: 3
+#     action:
+#       - service: notify.mobile
+#         data_template:
+#           title: 'Device: {{ trigger.to_state.name }} is'
+#           message: '{{ trigger.to_state.state }}'

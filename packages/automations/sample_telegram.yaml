@@ -1,0 +1,45 @@
+# automation:
+#   - alias: 'Want pizza?'
+#     hide_entity: true
+#     trigger:
+#       platform: time
+#       at: '12:10:00'    
+#     action:
+#       - service: telegram_bot.send_message
+#         data_template:
+#           title: 'Want pizza?'
+#           target: 951511280
+#           message: 'You look like you are home alone. Should I order you a pizza?'
+#           inline_keyboard:
+#             - "Gimme Pizza:/gimmepizza"
+#             - "No thanks:/nopizza"
+
+#   - alias: 'No pizza'
+#     hide_entity: true
+#     trigger:
+#       platform: event
+#       event_type: telegram_callback
+#       event_data:
+#         data: '/nopizza'
+#     action:
+#       - service: telegram_bot.answer_callback_query
+#         data_template:
+#           callback_query_id: '{{ trigger.event.data.id }}'
+#           message: 'Ok, no pizza then'
+
+#   - alias: 'gimme pizza'
+#     hide_entity: true
+#     trigger:
+#       platform: event
+#       event_type: telegram_callback
+#       event_data:
+#         data: '/gimmepizza'
+#     action:
+#       - service: telegram_bot.answer_callback_query
+#         data_template:
+#           callback_query_id: '{{ trigger.event.data.id }}'
+#           message: 'PIZZA TIME'
+#       - service: telegram_bot.delete_message
+#         data_template:
+#           message_id: 'last'
+#           chat_id: '{{ trigger.event.data.id }}'

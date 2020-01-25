@@ -1,0 +1,9 @@
+logger:
+  default: critical
+  logs:
+    homeassistant.core: fatal
+    homeassistant.components.mqtt: warning
+    custom_components.my_integration: debug
+    aiohttp: error
+    homeassistant.components.glances: fatal
+    glances_api: fatal

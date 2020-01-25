@@ -1,0 +1,18 @@
+  sensor.*temperature*:
+    templates:
+      icon_color: "if (state < -5) return 'rgb(30, 255, 255)';
+        else if (state < 0) return 'rgb(30, 144, 255)';
+        else if (state < 10) return 'rgb(255, 255, 0)';
+        else if (state < 15) return 'rgb(255, 211, 30)';
+        else if (state < 20) return 'rgb(0, 128, 0)';
+        else if (state < 25) return 'rgb(255, 165, 0)';
+        else if (state < 30) return 'rgb(255, 0, 0)';
+        else if (state < 35) return 'rgb(85, 0, 0)';
+        else return 'rgb(47, 0, 0)';"
+
+  sensor.*battery*:
+    templates:
+      icon_color: "if (state < 20) return 'rgb(255, 0, 0)';
+      else if (state < 65) return 'rgb(255, 165, 0)';
+      else if (state >= 65) return 'rgb(0, 128, 0)';"
+      

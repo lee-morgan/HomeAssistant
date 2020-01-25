@@ -1,0 +1,5 @@
+unifi:
+  controllers:
+    - host: !secret unifi_host
+      site: default
+      detection_time: 30

@@ -1,0 +1,15 @@
+automation:
+  - alias: '[Motion] Bedroom 2 Motion Whilst Away'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.bedroom2_motion
+      to: 'on'
+    condition:
+    - condition: state
+      entity_id: person.lee
+      state: home
+    action:
+      - service: notify.mobile
+        data_template:
+          title: 'Bedroom 2 Motion'
+          message: 'Someone is in the Bedroom'

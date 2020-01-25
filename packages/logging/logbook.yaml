@@ -1,0 +1,30 @@
+logbook:
+  exclude:
+    domains:
+      - light
+      - group 
+      - sun
+      - yr
+      - automation
+    entities:
+      - sensor.custom_card_tracker
+      - sensor.remote_ui
+      - sensor.custom_component_tracker
+      - sensor.daddys_assistant_alarm
+      - sensor.daddys_assistant_timer
+      - sensor.disk_free
+      - sensor.disk_use_percent
+      - sensor.home_assistant_log
+      - sensor.home_assistant_v2_db
+      - sensor.last_boot
+      - sensor.memory_free
+      - sensor.motion_sensor_battery
+      - sensor.plexspy
+      - sensor.multipurpose_sensor_x_coordinate
+      - sensor.multipurpose_sensor_y_coordinate
+      - sensor.multipurpose_sensor_z_coordinate
+      - sensor.qbittorent_down_speed
+      - sensor.qbittorent_status
+      - sensor.qbittorent_up_speed
+      - sensor.date 
+      - sensor.time 

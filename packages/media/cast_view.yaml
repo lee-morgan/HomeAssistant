@@ -1,0 +1,29 @@
+script:
+  cast_network:
+    alias: Cast Network to Display
+    sequence:
+    - service: cast.show_lovelace_view
+      data:
+        entity_id: 'media_player.bedroom_2_display'
+        view_path: 'network'
+  cast_lights:
+    alias: Cast Lights to Display
+    sequence:
+    - service: cast.show_lovelace_view
+      data:
+        entity_id: 'media_player.bedroom_2_display'
+        view_path: 'lights' 
+  cast_media:
+    alias: Cast Media Devices to Display
+    sequence:
+    - service: cast.show_lovelace_view
+      data:
+        entity_id: 'media_player.bedroom_2_display'
+        view_path: 'media' 
+  cast_home:
+    alias: Cast Homepage to Display
+    sequence:
+    - service: cast.show_lovelace_view
+      data:
+        entity_id: 'media_player.bedroom_2_display'
+        view_path: 'default_view'

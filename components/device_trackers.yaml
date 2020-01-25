@@ -1,0 +1,15 @@
+  ### Track Devices with Unifi ###
+  - platform: unifi
+    host: !secret unifi_host
+    username: !secret unifi_username
+    password: !secret unifi_password
+    detection_time: 120 
+    verify_ssl: false
+    interval_seconds: 12
+    consider_home: 120
+    new_device_defaults:
+      track_new_devices: true
+
+    
+
+

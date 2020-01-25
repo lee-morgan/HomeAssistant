@@ -1,0 +1,7 @@
+zone:
+  - name: SOS 
+    latitude: !secret lee_work_latitude
+    longitude: !secret lee_work_longitude
+    radius: 50
+    icon: mdi:office-building
+    

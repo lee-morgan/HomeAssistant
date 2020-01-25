@@ -1,0 +1,41 @@
+binary_sensor.motion_sensor_hallway:
+  icon: mdi:motion-sensor
+  
+binary_sensor.multipurpose_sensor_hallway_contact:
+  icon: mdi:door
+
+binary_sensor.multipurpose_sensor_hallway_acceleration:
+  icon: mdi:axis-arrow
+
+sensor.multipurpose_sensor_hallway_x_coordinate:
+  icon: mdi:axis-x-arrow
+
+sensor.multipurpose_sensor_hallway_y_coordinate:
+  icon: mdi:axis-y-arrow
+
+sensor.multipurpose_sensor_hallway_z_coordinate:
+  icon: mdi:axis-z-arrow
+
+sensor.lee_assistant_alarm:
+  icon: mdi:alarm
+
+sensor.lee_assistant_timer:
+  icon: mdi:timer
+
+binary_sensor.bathroom1_motion:
+  device_class: motion
+
+light.bedroom3_led_strip:
+  friendly_name: "Bedroom 3 Lightstrip"
+
+light.bedroom1_led_strip:
+  friendly_name: "Bedroom 1 Lightstrip"
+  
+# sensor.solar_angle:
+#   icon: mdi:angle-acute
+
+# sensor.sunrise: 
+#   icon: mdi:weather-sunset-up
+
+# sensor.sunset: 
+#   icon: mdi:weather-sunset-down

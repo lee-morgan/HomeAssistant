@@ -1,0 +1,16 @@
+automation:
+  - alias: '[System] Reset Sonos Volume'
+    hide_entity: true
+    trigger:
+      platform: time
+      at: '02:00:00'    
+    action:
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.sonos_beam
+          volume_level: 0.1
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.sonos_one
+          volume_level: 0.1
+          

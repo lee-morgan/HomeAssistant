@@ -1,0 +1,48 @@
+automation:
+  ### These will be turned off untill we're in the new place ###
+  - alias: '[Sensor] Garage Door Open Daytime'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.garage_sensor_contact
+        to: 'on'
+        from: 'off'
+    condition:
+      condition: and
+      conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'above_horizon'
+    action:
+        - service: script.sonos_say
+          data:
+            sonos_entity: media_player.living_room_speaker
+            volume: 0.5
+            message: 'The garage door is open!'
+            delay: '00:00:03'
+
+  - alias: '[Sensor] Garage Door Open Nightime'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.garage_sensor_contact
+        to: 'on'
+        from: 'off'
+    condition:
+      condition: and
+      conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+    action:
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.lee_assistant
+          volume_level: 0.1
+      - service: tts.google_translate_say
+        entity_id: media_player.lee_assistant
+        data:
+          message: "The garage door is open!"
+      - delay: '00:00:05'
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.lee_assistant
+          volume_level: 0.2
