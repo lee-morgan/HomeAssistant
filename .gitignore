@@ -10,6 +10,7 @@
 .storage
 .cloud
 .google.token
+.HA_VERSION
 
 # Ignore these files.
 ip_bans.yaml
