@@ -1,0 +1,40 @@
+### Setup Remotes ###
+remote:
+  - platform: broadlink 
+    name: "Bedroom 2"
+    host: !secret bedroom2_remote_host
+    mac: !secret  bedroom2_remote_mac
+    
+### Setup Remote Commands ###
+script:
+  power_on_tv:
+    alias: Bedroom 2 TV On
+    sequence:
+      - service: remote.send_command
+        data:
+          entity_id: remote.bedroom_2
+          device: television
+          command: power
+
+  power_off_tv:
+    alias: Bedroom 2 TV Off
+    sequence:
+      - service: remote.send_command
+        data:
+          entity_id: remote.bedroom_2
+          device: television
+          command: power
+
+  mute_tv:
+    alias: Bedroom 2 TV Mute
+    sequence:
+      - service: remote.send_command
+        data:
+          entity_id: remote.bedroom_2
+          device: television
+          command: mute
+
+# switch:
+#   - platform: broadlink
+#     host: !secret bedroom2_remote_host
+#     mac: !secret  bedroom2_remote_mac

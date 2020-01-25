@@ -1,0 +1,78 @@
+remote:
+  - platform: harmony
+    name: Living room
+    host: !secret harmony_host
+
+### Sensors for starting activities and checking which are currently active ###
+binary_sensor:
+  - platform: template
+    sensors:
+      watching_movie:
+        friendly_name: "Watching Movie"
+        delay_off:
+          minutes: 2
+        value_template: >-
+          {{ state_attr('remote.living_room', 'current_activity') == 'Movie Time' }}
+        icon_template: mdi:movie
+      watching_tv:
+        friendly_name: "Watching TV"
+        delay_off:
+          minutes: 2
+        value_template: >-
+          {{ state_attr('remote.living_room', 'current_activity') == 'Watch TV' }}
+        icon_template: mdi:television
+      playing_xbox:
+        friendly_name: "Playing Xbox"
+        delay_off:
+          minutes: 2
+        value_template: >-
+          {{ state_attr('remote.living_room', 'current_activity') == 'Play Xbox 360' }}
+        icon_template: mdi:xbox
+      powered_off:
+        friendly_name: "Powered Off"
+        delay_off:
+          minutes: 2
+        value_template: >-
+          {{ state_attr('remote.living_room', 'current_activity') == 'PowerOff' }}
+
+### Template sensor for display purposes only. ###
+sensor: 
+  - platform: template
+    sensors: 
+      harmony_current_activity:
+        friendly_name: Current Activity
+        value_template: >-
+          {% if is_state('remote.living_room', 'on') %}
+            {{ state_attr('remote.living_room', 'current_activity') }}
+          {% else %}
+            None
+          {% endif %}
+        icon_template: mdi:remote
+
+  - platform: history_stats
+    name: Time Playing Xbox
+    entity_id: binary_sensor.playing_xbox
+    state: 'on'
+    type: time
+    start: '{{ as_timestamp( now().replace(hour=0).replace(minute=0).replace(second=0) ) - now().weekday() * 86400 }}'
+    end: '{{ now() }}'
+
+  - platform: history_stats
+    name: Time Watching TV
+    entity_id: binary_sensor.watching_tv
+    state: 'on'
+    type: time
+    start: '{{ as_timestamp( now().replace(hour=0).replace(minute=0).replace(second=0) ) - now().weekday() * 86400 }}'
+    end: '{{ now() }}'
+
+### After finishing playing on the Xbox, ungroup the speakers ###
+automation:
+  - alias: '[System] Ungroup Sonos After Xbox Activity'
+    trigger:
+      platform: state 
+      entity_id: binary_sensor.playing_xbox 
+      to: 'off'
+      from: 'on'
+    action: 
+      service: sonos.unjoin
+

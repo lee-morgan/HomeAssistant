@@ -1,0 +1,10 @@
+# homeassistant:
+#   customize:
+#     switch.lees_fan:
+#       icon: mdi:fan
+
+# tplink: 
+#   discovery: false
+#   switch:
+#     - host: !secret remote_fan_switch
+    

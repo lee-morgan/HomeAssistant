@@ -1,0 +1,10 @@
+zwave:
+  usb_path: '/dev/ttyUSB0'
+  #usb_path: '/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_612026C1-if00-port0'
+  network_key: '0xf5, 0xfb, 0x0e, 0x42, 0xd0, 0xf9, 0x6a, 0x24, 0x5d, 0xad, 0x3b, 0x57, 0x92, 0x77, 0xef, 0xf7'
+
+zha:
+  radio_type: 'ezsp'
+  usb_path: '/dev/ttyUSB1' 
+  #usb_path: '/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_612026C1-if01-port0'
+  database_path: '/config/zigbee.db' 

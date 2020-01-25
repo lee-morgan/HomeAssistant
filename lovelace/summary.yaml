@@ -1,0 +1,105 @@
+  title: Summary
+  icon: mdi:information-outline 
+  #panel: true 
+  path: summary
+  cards:
+    ### Row 1 ###
+    - type: horizontal-stack
+      cards:
+        ### Column 1 ###
+        - type: vertical-stack
+          cards:
+            ### Weather ###
+            - type: custom:weather-card
+              entity: weather.dark_sky
+
+            ### Lights ###
+            - type: glance
+              title: Lights
+              show_name: true
+              show_state: true
+              entities: 
+                - entity: light.bens_main_light
+                  name: Ben's Light
+                  icon: mdi:ceiling-light
+                  tap_action:
+                    action: toggle
+                - entity: light.daddys_main_light
+                  name: Dad's Light
+                  icon: mdi:ceiling-light
+                  tap_action:
+                    action: toggle
+                - entity: light.hallway_light
+                  name: Hallway
+                  icon: mdi:ceiling-light
+                  tap_action:
+                    action: toggle
+    ### Column 2 ###
+    - type: horizontal-stack
+      cards:
+        - type: vertical-stack
+          cards:
+            ### Proximity Map ###
+            - type: map
+              title: Family Location
+              aspect_ratio: 1.78
+              default_zoom: 13
+              entities:
+                - group.family
+                - zone.home
+                - zone.sos
+                - zone.emr
+        - type: vertical-stack
+          cards:    
+            - type: entities
+              show_header_toggle: off
+              entities:
+                - type: custom:text-divider-row
+                  text: Hassio Server
+                  style: |
+                    ha-card {
+                      --top: 10px;
+                    }
+                - type: custom:vertical-stack-in-card
+                  cards:
+                    - type: horizontal-stack
+                      cards:
+                        - type: picture
+                          image: /local/images/ui/rpi4.jpg
+                          style:                 
+                            border-radius: 5px 
+                        - type: entities
+                          show_header_toggle: false
+                          entities:
+                            - entity: sensor.last_boot
+                              name: 'Last Boot'
+                            - entity: sensor.uptime
+                              name: 'Uptime'
+            
+                - type: custom:bar-card
+                  align: split
+                  show_icon: true
+                  padding: 4px
+                  columns: 2
+                  card_style: 
+                    border-radius: 5px
+                  entities:
+                    - entity: sensor.disk_use_percent
+                      title: Disk
+                    - entity: sensor.memory_use_percent
+                      title: RAM
+
+                - type: custom:bar-card
+                  align: split
+                  show_icon: true
+                  padding: 4px
+                  columns: 2
+                  card_style: 
+                    border-radius: 5px
+                  entities:
+                    - entity: sensor.processor_use
+                      title: CPU
+                    - entity: sensor.cpu_temperature
+                      title: Temp  
+                      icon: mdi:thermometer
+                

@@ -1,0 +1,233 @@
+  title: System
+  icon: mdi:lan 
+  path: system 
+  cards:
+    - type: vertical-stack
+      cards:
+        - type: custom:mini-graph-card
+          entities: 
+            - sensor.speedtest_ping
+          height: 20
+          line_width: 2
+          font_size: 70 
+          name: Ping
+          icon: mdi:pulse
+          hours_to_show: 168
+          points_per_hour: 1
+          show:
+            extrema: true
+            fill: true 
+            labels: false
+            icon_adaptive_color: true
+          color_thresholds:
+            - value: 15
+              color: "green"
+            - value: 20
+              color: "yellow"
+            - value: 30
+              color: "red"
+        - type: horizontal-stack
+          cards:
+            - type: custom:mini-graph-card
+              entities: 
+                - sensor.speedtest_download
+              height: 50
+              line_width: 2
+              font_size: 70
+              hours_to_show: 168
+              points_per_hour: 1
+              name: Download
+              icon: fas:download
+              show:
+                extrema: true
+                fill: true 
+                labels: false
+                icon_adaptive_color: true
+              color_thresholds:
+                - value: 350
+                  color: "red"
+                - value: 400
+                  color: "yellow"
+                - value: 450
+                  color: "green"
+                  
+            - type: custom:mini-graph-card
+              entities: 
+                - sensor.speedtest_upload
+              height: 50
+              line_width: 2
+              font_size: 70
+              hours_to_show: 168
+              points_per_hour: 1 
+              name: Upload
+              icon: fas:upload
+              show:
+                extrema: true
+                fill: true 
+                labels: false
+                icon_adaptive_color: true
+              color_thresholds:
+                - value: 35
+                  color: "red"
+                - value: 40
+                  color: "yellow"
+                - value: 45
+                  color: "green"
+        ### System Information ###
+        - type: entities
+          title: 'System'
+          show_header_toggle: false
+          entities:
+            - entity: sensor.last_boot
+              name: 'Last System Boot'
+            - entity: sensor.uptime
+              name: 'HA Uptime'
+            - entity: sensor.disk_free
+              name: 'HDD Free'
+            - entity: sensor.memory_free
+              name: 'RAM Free'
+            - entity: sensor.home_assistant_v2_db
+              name: 'Database Size'
+              icon: mdi:database
+
+        ### System Stats History ###
+        - type: horizontal-stack
+          cards:
+            - type: custom:mini-graph-card
+              entities:
+                - entity: sensor.processor_use
+                  name: 'CPU Usage'
+              height: 50
+              line_width: 2
+              font_size: 70
+              hours_to_show: 168
+              points_per_hour: 0.25
+              icon: fas:microchip
+              show:
+                extrema: true
+                fill: true 
+                labels: false
+                icon_adaptive_color: true
+              color_thresholds:
+                - value: 45
+                  color: "green"
+                - value: 85
+                  color: "yellow"
+                - value: 100
+                  color: "red"
+            - type: custom:mini-graph-card
+              entities:
+                - entity: sensor.memory_use_percent
+                  name: 'RAM Usage'
+              height: 50
+              line_width: 2
+              font_size: 70
+              hours_to_show: 168
+              points_per_hour: 0.25
+              icon: fas:memory
+              show:
+                extrema: true
+                fill: true
+                labels: false
+                icon_adaptive_color: true
+              color_thresholds:
+                - value: 45
+                  color: "green"
+                - value: 85
+                  color: "yellow"
+                - value: 100
+                  color: "red"
+    - type: vertical-stack
+      cards: 
+        - type: custom:home-feed-card
+          title: 'Home Feed'
+          show_empty: false
+          #calendars:
+          entities:
+            - binary_sensor.bathroom1_motion 
+            - sensor.harmony_current_activity
+            - binary_sensor.watching_movie
+            - binary_sensor.watching_tv
+            - binary_sensor.playing_xbox
+            - binary_sensor.powered_off
+          style: |
+            ha-card {
+              height: 545px;
+              overflow: hidden;
+              font-family: 'Open Sans', sans-serif;
+            }
+            ha-icon {
+              margin-top: 3px;
+              margin-left: 3px;
+            }
+        - type: entities
+          title: 'Network'
+          show_header_toggle: false
+          entities:
+            - entity: sensor.plexspy
+              icon: mdi:plex
+            - entity: sensor.qbittorrent_down_speed
+              name: 'Download'
+              icon: fas:cloud-download-alt
+            - entity: sensor.qbittorrent_up_speed
+              name: 'Upload'
+              icon: fas:cloud-upload-alt
+            - entity: sensor.qbittorrent_status
+              name: 'Status'
+              type: custom:secondaryinfo-entity-row
+              icon: mdi:pulse
+    - type: vertical-stack
+      cards:
+        - type: entities
+          title: Device Status
+          show_header_toggle: false
+          entities:
+            - entity: sensor.system_hue_bridge
+              secondary_info: last-changed
+            - entity: sensor.system_printer
+              secondary_info: last-changed
+            - entity: binary_sensor.remote_ui
+              secondary_info: last-changed
+        - type: shopping-list
+          title: 'Todo List'
+    - type: custom:auto-entities
+      card:
+        type: entities 
+        title: Alert Automations
+        show_header_toggle: false
+      filter:
+        include:
+          - entity_id: 'automation.alert*'
+    - type: custom:auto-entities
+      card:
+        type: entities 
+        title: Motion Automations
+        show_header_toggle: false
+      filter:
+        include:
+          - entity_id: 'automation.motion*'
+    - type: custom:auto-entities
+      card:
+        type: entities 
+        title: Presence Automations
+        show_header_toggle: false
+      filter:
+        include:
+          - entity_id: 'automation.presence*'
+    - type: custom:auto-entities
+      card:
+        type: entities 
+        title: Sensor Automations
+        show_header_toggle: false
+      filter:
+        include:
+          - entity_id: 'automation.sensor*'
+    - type: custom:auto-entities
+      card:
+        type: entities 
+        title: System Automations
+        show_header_toggle: false
+      filter:
+        include:
+          - entity_id: 'automation.system*'
+    - type: custom:gui-sandbox

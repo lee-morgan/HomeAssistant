@@ -1,0 +1,13 @@
+sensor:
+  - platform: template
+    sensors:
+      lee_phone_battery_level:
+        friendly_name: Lee Phone Battery Level
+        unit_of_measurement: '%'
+        value_template: >-
+            {%- if state_attr('device_tracker.lee_phone_gps', 'battery_level') %}
+                {{ state_attr('device_tracker.lee_phone_gps', 'battery_level')|round }}
+            {% else %}
+                {{ states.sensor.lee_phone_battery_level.state }}
+            {%- endif %}
+        device_class: battery

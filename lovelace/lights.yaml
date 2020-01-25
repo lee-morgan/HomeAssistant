@@ -1,0 +1,20 @@
+  title: Lights
+  icon: mdi:lightbulb
+  path: lights
+  cards:
+    - type: entities
+      title: 'Lights'
+      show_header_toggle: false
+      entities:
+        - entity: binary_sensor.motion_sensor_hallway
+          name: 'Hallway Motion'
+          type: custom:secondaryinfo-entity-row
+          icon: mdi:motion-sensor
+          secondary_info: 'Battery level [[ sensor.hallway_battery.state ]]%'
+        - entity: sensor.hallway_temperature_measurement
+        - entity: sensor.multipurpose_sensor_temperature_measurement
+    - type: custom:calendar-card
+      title: "My Calendar"
+      progressBar: true
+      entities:
+        - calendar.julee_household_gmail_com

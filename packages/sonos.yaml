@@ -1,0 +1,7 @@
+### Sonos Speakers ###
+sonos:
+  media_player:
+    advertise_addr: !secret hass_ip
+    hosts: 
+      - !secret sonos_beam
+      - !secret sonos_one

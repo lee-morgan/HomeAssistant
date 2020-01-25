@@ -1,0 +1,91 @@
+# ### Apply Some Site Wide Styles ###
+#   - url: '/local/css/styles.css'
+#     type: css
+
+# ### Use Lora font throughout the site. ###
+#   - url: 'https://fonts.googleapis.com/css?family=Lora'
+#     type: css
+
+### Card Modder ###
+  - url: /community_plugin/lovelace-card-mod/card-mod.js
+    type: module
+
+### Bar Card ###
+  - url: /community_plugin/bar-card/bar-card.js
+    type: js 
+
+### Mini-Graph ###
+  - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
+    type: module 
+
+### Mini-Media ###
+  - url: /community_plugin/mini-media-player/mini-media-player-bundle.js
+    type: module 
+
+### Custom Header ###
+  - url: /community_plugin/custom-header/custom-header.js
+    type: module 
+
+### Secondary row info ###
+  - url: /community_plugin/secondaryinfo-entity-row/secondaryinfo-entity-row.js
+    type: js
+
+### Card Tools ###
+  - url: /community_plugin/lovelace-card-tools/card-tools.js
+    type: module 
+
+### Circle Card ###
+  - url: /community_plugin/circle-sensor-card/circle-sensor-card.js
+    type: module 
+
+### Text Divider ###
+  - url: /community_plugin/text-divider-row/text-divider-row.js
+    type: module 
+
+### Custom Layout ###
+  - url: /community_plugin/lovelace-layout-card/layout-card.js
+    type: module 
+
+### Home Feed Style ### 
+  - url: /community_plugin/lovelace-home-feed-card/lovelace-home-feed-card.js
+    type: js 
+
+### Vertical Stack-In ###
+  - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
+    type: js 
+
+### Slider Entity Row ### 
+  - url: /community_plugin/lovelace-slider-entity-row/slider-entity-row.js
+    type: module
+
+### Auto Entities ###
+  - url: /community_plugin/lovelace-auto-entities/auto-entities.js
+    type: module 
+
+### Custom Button ###
+  - url: /community_plugin/button-card/button-card.js
+    type: module 
+
+### GUI Sandbbox ###
+  - url: /community_plugin/lovelace-gui-sandbox/gui-sandbox.js
+    type: module 
+
+### Decluttering Templates ###
+  - url: /community_plugin/decluttering-card/decluttering-card.js
+    type: module
+
+### Nest Layout Card ###
+  - url: /community_plugin/modified-custom-cards/nest-layout-card.js
+    type: module 
+
+### Grocy Chores ###
+  - url: /community_plugin/lovelace-grocy-chores-card/grocy-chores-card.js  
+    type: js
+
+### Animated Weather ###
+  - url: /community_plugin/weather-card/weather-card.js
+    type: module 
+
+### Atomic Calendar ###
+  - url: /community_plugin/atomic_calendar/atomic_calendar.js
+    type: module

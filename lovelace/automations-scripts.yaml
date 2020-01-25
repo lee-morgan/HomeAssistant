@@ -1,0 +1,72 @@
+  title: Automations
+  icon: mdi:play-box-outline
+  path: automations
+  panel: true
+  cards:
+    - type: vertical-stack
+      cards: 
+        - type: horizontal-stack
+          cards:
+            - type: vertical-stack
+              cards:
+                - type: custom:auto-entities
+                  card:
+                    type: entities 
+                    title: Alert Automations
+                    show_header_toggle: false
+                  filter:
+                    include:
+                      - entity_id: 'automation.alert*'
+                - type: custom:auto-entities
+                  card:
+                    type: entities 
+                    title: Motion Automations
+                    show_header_toggle: false
+                  filter:
+                    include:
+                      - entity_id: 'automation.motion*'
+                - type: custom:auto-entities
+                  card:
+                    type: entities 
+                    title: Presence Automations
+                    show_header_toggle: false
+                  filter:
+                    include:
+                      - entity_id: 'automation.presence*'
+                - type: custom:auto-entities
+                  card:
+                    type: entities 
+                    title: Sensor Automations
+                    show_header_toggle: false
+                  filter:
+                    include:
+                      - entity_id: 'automation.sensor*'
+                - type: custom:auto-entities
+                  card:
+                    type: entities 
+                    title: System Automations
+                    show_header_toggle: false
+                  filter:
+                    include:
+                      - entity_id: 'automation.system*'
+            - type: vertical-stack
+              cards:
+                - type: custom:gui-sandbox
+            - type: vertical-stack
+              cards:
+                - type: markdown
+                  content: 'Column 3, Row 1'
+        - type: horizontal-stack
+          cards:
+            - type: vertical-stack
+              cards:
+                - type: markdown
+                  content: 'Column 1, Row 2'
+            - type: vertical-stack
+              cards:
+                - type: markdown
+                  content: 'Column 2, Row 2'  
+            - type: vertical-stack
+              cards:
+                - type: markdown
+                  content: 'Column 3, Row 2'

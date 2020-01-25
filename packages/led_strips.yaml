@@ -1,0 +1,9 @@
+light:
+  - platform: flux_led
+    devices:
+      192.168.20.237:
+        name: bedroom3_led_strip
+        mode: rgbw
+      192.168.20.239:
+        name: bedroom1_led_strip
+        mode: rgbw
