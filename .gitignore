@@ -21,7 +21,7 @@ www/*
 tts
 deps
 .vscode
-*/__pycache__/*
+**/__pycache__/*
 
 # Include these files.
 ip_bans.yaml
