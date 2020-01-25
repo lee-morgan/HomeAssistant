@@ -18,6 +18,6 @@ secrets.yaml
 known_devices.yaml
 google_calendars.yaml
 
-# Include thse folders and sub-folders
+# Include these folders and sub-folders
 !lovelace/*
 !packages/*
