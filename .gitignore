@@ -1,23 +1,35 @@
-# Ignore Everything.
+# Include Extensions.
 *
+*.xml
+*.conf
+*.log
+*.db
+*.txt
+*.sqlite
 
-# Include these files.
+# Exclude these extensions.
 !*.yaml
 !.gitignore
 !*.md
 
-# Ignore these folders.
+# Include these folders.
 .storage
 .cloud
 .google.token
 .HA_VERSION
+.uuid
+www/*
+tts/*
+deps/*
+.vscode
+custom_components/*
 
-# Ignore these files.
+# Include these files.
 ip_bans.yaml
 secrets.yaml
 known_devices.yaml
 google_calendars.yaml
 
-# Include these folders and sub-folders
+# Exclude these folders and sub-folders
 !lovelace/**
 !packages/**
