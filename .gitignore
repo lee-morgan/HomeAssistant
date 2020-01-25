@@ -1,52 +1,18 @@
-# Prerequisites
-*.d
+# Example .gitignore file for your config dir.
+# An * ensures that everything will be ignored.
+*
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+# You can whitelist files/folders with !, these will not be ignored.
+!*.yaml
+!.gitignore
+!*.md
 
-# Linker output
-*.ilk
-*.map
-*.exp
+# Ignore folders.
+.storage
+.cloud
+.google.token
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+ip_bans.yaml
+secrets.yaml
+known_devices.yaml
