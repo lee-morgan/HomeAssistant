@@ -19,5 +19,5 @@ known_devices.yaml
 google_calendars.yaml
 
 # Include these folders and sub-folders
-!lovelace/**
-!packages/**
+!lovelace/*/*
+!packages/*/*
