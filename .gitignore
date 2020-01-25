@@ -19,17 +19,17 @@
 .HA_VERSION
 .uuid
 www/*
-tts/*
-deps/*
+tts
+deps
 .vscode
-custom_components/*
 
 # Include these files.
 ip_bans.yaml
 secrets.yaml
 known_devices.yaml
 google_calendars.yaml
+home-assistant_v2.db-shm
+home-assistant_v2.db-wal
 
 # Exclude these folders and sub-folders
-!lovelace/**
-!packages/**
+!www/community
