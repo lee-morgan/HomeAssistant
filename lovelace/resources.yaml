@@ -89,3 +89,7 @@
 ### Atomic Calendar ###
   - url: /community_plugin/atomic_calendar/atomic_calendar.js
     type: module
+
+### Upcoming Media ###
+  - url: /community_plugin/upcoming-media-card/upcoming-media-card.js
+    type: js
