@@ -1,17 +1,17 @@
 ### Plex Players ###
-# media_player:
-#   - platform: plex
-#     scan_interval: 10
+media_player:
+  - platform: plex
+    scan_interval: 10
 
-# ### Living Room TV ###
-#   - platform: samsungtv
-#     host: !secret living_room_tv_ip
-#     port: 8001
-#     name: Living Room TV 
-#     timeout: 30
-#     mac: !secret living_room_tv_mac
+### Living Room TV ###
+  # - platform: samsungtv
+  #   host: !secret living_room_tv_ip
+  #   port: 8001
+  #   name: Living Room TV 
+  #   timeout: 30
+  #   mac: !secret living_room_tv_mac
 
-# ### Spotify ###
-#   - platform: spotify 
-#     client_id: !secret spotify_client_id
-#     client_secret: !secret spotify_client_secret
+### Spotify ###
+  # - platform: spotify 
+  #   client_id: !secret spotify_client_id
+  #   client_secret: !secret spotify_client_secret
