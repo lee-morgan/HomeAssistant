@@ -422,10 +422,10 @@
                                     - entity: sensor.system_xbox_360
                                     - state:
                                         - value: 'Online'
-                                          icon: mdi:account-group-outline
+                                          icon: mdi:xbox
                                           color: rgb(152,251,152)
                                         - value: 'Offline'
-                                          icon: mdi:account-group-outline
+                                          icon: mdi:xbox
                                           color: "#F00"
                                 - type: custom:decluttering-card
                                   template: nest_button
@@ -433,11 +433,11 @@
                                     - entity: sensor.system_xbox_one
                                     - state:
                                         - value: 'Online'
-                                          icon: mdi:beach
+                                          icon: mdi:xbox
                                           color: rgb(152,251,152)
                                         - value: 'Offline'
-                                          icon: mdi:beach
-                                          color: "#F00
+                                          icon: mdi:xbox
+                                          color: "#F00"
                                 - type: custom:decluttering-card
                                   template: nest_button
                                   variables:
@@ -562,10 +562,10 @@
                               cards:
                                 - type: custom:upcoming-media-card
                                   entity: sensor.recently_added_tv
-                                  title: To watch
-                                  date: ddmm
+                                  title: Recently Added TV
+                                  date: ddmmyyyy
                                   clock: 24
-                                  max: 2
+                                  max: 3
                                   image_style: poster
                                   flag: false
                                   hide_unflagged: true
@@ -587,41 +587,42 @@
                                   line3_text: "Released: $aired"
                                   line4_text: "Added: $release"
                                   style: |
-                                    .plex_fan_fanart {
-                                      -webkit-box-shadow: none;
-                                      -moz-box-shadow: none;
-                                      box-shadow: none !important;
-                                      height: 100px;
-                                    }
                                     ha-card {
                                       margin-top: 10px;
                                       font-family: 'Open Sans', sans-serif;
-                                      height: 370px;
+                                      height: 510px;
                                       # 560
                                     }
                                     .card-header {
                                       padding-bottom: 8px;
                                       padding-bottom: 0;
                                     }
-                                    .plex_poster {
-                                      margin: 0 !important;
-                                    }
                                     .rece_poster {
                                       margin-top: 0 !important;
                                       margin-bottom: 0 !important;
+                                    }
+                                    .rece_svg_poster {
+                                      margin-top: 0 !important;
+                                    }
+                                    .rece_container_poster {
+                                      -webkit-box-shadow: none;
+                                      -moz-box-shadow: none;
+                                      box-shadow: none !important;
+                                      background-size: contain !important;
+                                      height: 120px;
                                     }
                                 - type: picture-entity
                                   entity: camera.attic
                                   camera_view: live
                                   show_state: false
                                   show_name: false
-      # style: |
-      #   ha-card {
-      #     height: 920px;
-      #     font-family: 'Open Sans', sans-serif;
-      #     font-size: 150%;
-      #     margin: 10px;
-      #     text-align: center;
-      #     margin-top: 40px;
-      #     background: rgba(0,0,0,1);
-      #   }
+          style: |
+            ha-card {
+              height: 920px;
+              font-family: 'Open Sans', sans-serif;
+              font-size: 150%;
+              margin: 10px;
+              text-align: center;
+              margin-top: 20px;
+              background: rgba(0,0,0,1);
+            }
