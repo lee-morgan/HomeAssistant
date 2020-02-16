@@ -66,7 +66,7 @@ customElements.whenDefined('card-tools').then(() => {
       }
   
       .column {
-        margin: 10px;
+        margin: 10px 10px 0px 10px;
         flex-basis: 0;
         flex-grow: 1;
         overflow-x: visible;
@@ -78,7 +78,7 @@ customElements.whenDefined('card-tools').then(() => {
       }
   
       .column > *:first-child {
-        // margin-top: 0;
+        margin: 0px;
       }
       `;
     }
