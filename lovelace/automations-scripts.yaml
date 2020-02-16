@@ -1,72 +1,119 @@
   title: Automations
   icon: mdi:play-box-outline
   path: automations
-  panel: true
+  #panel: true
   cards:
-    - type: vertical-stack
-      cards: 
-        - type: horizontal-stack
-          cards:
-            - type: vertical-stack
-              cards:
-                - type: custom:auto-entities
-                  card:
-                    type: entities 
-                    title: Alert Automations
-                    show_header_toggle: false
-                  filter:
-                    include:
-                      - entity_id: 'automation.alert*'
-                - type: custom:auto-entities
-                  card:
-                    type: entities 
-                    title: Motion Automations
-                    show_header_toggle: false
-                  filter:
-                    include:
-                      - entity_id: 'automation.motion*'
-                - type: custom:auto-entities
-                  card:
-                    type: entities 
-                    title: Presence Automations
-                    show_header_toggle: false
-                  filter:
-                    include:
-                      - entity_id: 'automation.presence*'
-                - type: custom:auto-entities
-                  card:
-                    type: entities 
-                    title: Sensor Automations
-                    show_header_toggle: false
-                  filter:
-                    include:
-                      - entity_id: 'automation.sensor*'
-                - type: custom:auto-entities
-                  card:
-                    type: entities 
-                    title: System Automations
-                    show_header_toggle: false
-                  filter:
-                    include:
-                      - entity_id: 'automation.system*'
-            - type: vertical-stack
-              cards:
-                - type: custom:gui-sandbox
-            - type: vertical-stack
-              cards:
-                - type: markdown
-                  content: 'Column 3, Row 1'
-        - type: horizontal-stack
-          cards:
-            - type: vertical-stack
-              cards:
-                - type: markdown
-                  content: 'Column 1, Row 2'
-            - type: vertical-stack
-              cards:
-                - type: markdown
-                  content: 'Column 2, Row 2'  
-            - type: vertical-stack
-              cards:
-                - type: markdown
-                  content: 'Column 3, Row 2'
+    - type: entities
+      title: Alert Automations
+      show_header_toggle: false 
+      state_color: true
+      entities:
+        - automation.alert_garage_door_open
+        - automation.alert_update_available_notification
+
+    - type: entities
+      title: Motion Automations
+      show_header_toggle: false 
+      state_color: true
+      entities:
+        - automation.motion_bedroom_2_motion_whilst_away
+        - automation.motion_ground_floor_bathroom_light
+        - automation.motion_ground_floor_bathroom_light_auto_off
+
+    - type: entities
+      title: Presence Automations
+      show_header_toggle: false 
+      state_color: true
+      entities:
+        - automation.presence_person_away
+        - automation.presence_person_extended_away
+        - automation.presence_person_home
+        - automation.presence_person_just_left
+        - automation.presence_person_just_arrived
+
+    - type: entities
+      title: System Automations
+      show_header_toggle: false 
+      state_color: true
+      entities:
+        - automation.system_reset_sonos_volume
+        - automation.system_startup
+        - automation.system_ungroup_sonos_after_xbox_activity
+
+    - type: entities
+      title: Sensor Automations
+      show_header_toggle: false 
+      state_color: true
+      entities: 
+        - automation.sensor_garage_door_open_daytime
+        - automation.sensor_garage_door_open_nightime
+
+    - type: entities
+      title: RemoteUI Automations
+      show_header_toggle: false 
+      state_color: true
+      entities:
+        - automation.remoteui_connect
+        - automation.remoteui_disconnect
+
+    - type: entities
+      title: Light Scripts
+      show_header_toggle: false 
+      state_color: true
+      entities:
+        - script.save_lights
+        - script.restore_lights
+
+    - type: entities
+      title: Livingroom TV Scripts
+      show_header_toggle: false 
+      state_color: true
+      entities:
+        - script.livingroom_tv_app_amazon
+        - script.livingroom_tv_app_youtube
+        - script.livingroom_tv_app_netflix
+
+    - type: entities
+      title: Cast Scripts
+      show_header_toggle: false 
+      state_color: true
+      entities: 
+        - script.cast_home
+        - script.cast_lights
+        - script.cast_media
+        - script.cast_network
+
+    - type: entities
+      title: Bedroom 2 Scripts
+      show_header_toggle: false 
+      state_color: true
+      entities: 
+        - script.mute_tv
+        - script.power_off_tv
+        - script.power_on_tv 
+
+    - type: entities
+      title: Sonos Scripts
+      show_header_toggle: false 
+      state_color: true
+      entities: 
+        - script.sonos_say
+
+    - type: entities
+      title: Theme Automations
+      show_header_toggle: false 
+      state_color: true
+      entities: 
+        - automation.set_theme_to_midnight
+
+    - type: entities
+      title: Change Peoples States
+      show_header_toggle: false 
+      state_color: true
+      entities: 
+      - input_select.ben_status_dropdown
+      - input_select.lillie_status_dropdown
+      - input_select.julie_status_dropdown
+      - input_select.lee_status_dropdown
+
+    - type: custom:gui-sandbox

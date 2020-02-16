@@ -1,12 +1,54 @@
-  title: Cast
+  title: Media
   icon: mdi:cast 
-  path: cast 
+  path: Media 
   cards:
-    - type: media-control
-      entity: media_player.daddys_chromecast
-    - type: media-control
-      entity: media_player.living_room_tv
-    # - type: media-control
-    #   entity: media_player.plex_microsoft_edge
-    - type: media-control
-      entity: media_player.spotify
+    - type: custom:mini-media-player
+      entity: media_player.bedroom_1_chromecast
+      artwork: cover
+      info: short
+    - type: custom:mini-media-player
+      entity: media_player.spotify_lee_morgan
+      name: Spotify (Lee)
+      artwork: cover
+      info: short
+    - type: custom:mini-media-player
+      entity: media_player.bedroom_2_chromecast
+      artwork: cover
+      info: short
+    - type: custom:mini-media-player
+      entity: media_player.bedroom_1_display
+    - type: custom:mini-media-player
+      entity: media_player.bedroom_2_display
+      artwork: cover
+      info: short
+    # - type: custom:mini-media-player
+    #   entity: media_player.plex_galaxy_s9 
+    # - type: custom:mini-media-player
+    #   entity: media_player.plex_lillie_laptop
+    # - type: custom:mini-media-player
+    #   entity: media_player.plex_tv_ue55ku6470
+    # - type: custom:mini-media-player
+    #   entity: media_player.plex_xboxone
+    # - type: custom:mini-media-player
+    #   entity: media_player.sonos_beam
+    # - type: custom:mini-media-player
+    #   entity: media_player.sonos_one
+
+    - type: custom:mini-media-player
+      entity: media_player.sonos_beam
+      name: Livingroom Speakers
+      artwork: cover
+      info: short
+      hide:
+        power: true
+        icon: true
+        source: true
+      speaker_group:
+        platform: sonos
+        show_group_count: true
+        sync_volume: true
+        entities:
+          - entity_id: media_player.sonos_beam
+            name: Livingroom Soundbar
+          - entity_id: media_player.sonos_one
+            name: Livingroom Stereo

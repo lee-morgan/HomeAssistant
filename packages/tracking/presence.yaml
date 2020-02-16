@@ -50,6 +50,16 @@ input_select:
       - Extended Away
     initial: Home
 
+  family_status_dropdown:
+    name: 'Family Status' 
+    options:
+      - Home
+      - Just Arrived
+      - Just Left
+      - Away
+      - Extended Away
+    initial: Home
+
 sensor:
   - platform: template 
     sensors:

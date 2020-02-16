@@ -13,6 +13,8 @@ sensor:
     token: !secret plex_token
     host: !secret plex_host_ip
     port: !secret plex_host_port
+    download_images: true
+    max: 3
     section_types:
     - movie
 
@@ -21,5 +23,7 @@ sensor:
     token: !secret plex_token
     host: !secret plex_host_ip
     port: !secret plex_host_port
+    download_images: true
+    max: 3
     section_types:
     - show

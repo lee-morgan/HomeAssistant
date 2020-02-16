@@ -190,44 +190,18 @@
               secondary_info: last-changed
         - type: shopping-list
           title: 'Todo List'
-    - type: custom:auto-entities
-      card:
-        type: entities 
-        title: Alert Automations
-        show_header_toggle: false
-      filter:
-        include:
-          - entity_id: 'automation.alert*'
-    - type: custom:auto-entities
-      card:
-        type: entities 
-        title: Motion Automations
-        show_header_toggle: false
-      filter:
-        include:
-          - entity_id: 'automation.motion*'
-    - type: custom:auto-entities
-      card:
-        type: entities 
-        title: Presence Automations
-        show_header_toggle: false
-      filter:
-        include:
-          - entity_id: 'automation.presence*'
-    - type: custom:auto-entities
-      card:
-        type: entities 
-        title: Sensor Automations
-        show_header_toggle: false
-      filter:
-        include:
-          - entity_id: 'automation.sensor*'
-    - type: custom:auto-entities
-      card:
-        type: entities 
-        title: System Automations
-        show_header_toggle: false
-      filter:
-        include:
-          - entity_id: 'automation.system*'
-    - type: custom:gui-sandbox
+
+        - type: entities
+          title: Pi-Hole
+          show_header_toggle: false
+          entities:
+            - entity: sensor.system_pi_hole
+            - entity: sensor.pi_hole_ads_blocked_today
+            - entity: sensor.pi_hole_ads_percentage_blocked_today
+            - entity: sensor.pi_hole_dns_queries_cached
+            - entity: sensor.pi_hole_dns_queries_forwarded
+            - entity: sensor.pi_hole_dns_queries_today
+            - entity: sensor.pi_hole_dns_unique_clients
+            - entity: sensor.pi_hole_dns_unique_domains
+            - entity: sensor.pi_hole_domains_blocked
+            - entity: sensor.pi_hole_seen_clients

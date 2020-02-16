@@ -76,7 +76,14 @@ sensor:
       system_lee_pc:
         friendly_name: Lee PC
         entity_id: "device_tracker.lee_pc"
-        value_template: "{{ 'Online' if is_state('device_tracker.lee_pc', 'home') else 'Offline' }}"
+        value_template: >-
+          {% if is_state('device_tracker.lee_pc', 'home') %}
+            Online
+          {% elif is_state('device_tracker.lee_pc', 'not_home') %}
+            Offline
+          {% else %}
+            Unknown
+          {% endif %}
 
       system_xbox_one:
         friendly_name: Xbox One
