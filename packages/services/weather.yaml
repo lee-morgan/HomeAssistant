@@ -1,0 +1,24 @@
+weather: 
+  - platform: darksky
+    api_key: !secret darksky_api_key
+    latitude: !secret home_latitude
+    longitude: !secret home_longitude
+    mode: daily
+    units: uk
+
+sensor:
+### Weather prediction ###
+- platform: yr
+
+### Weather forecasts ###
+- platform: darksky 
+  api_key: !secret darksky_api_key
+  monitored_conditions:
+    - summary
+    - temperature
+    - wind_speed
+    - precip_probability
+  scan_interval:
+    hours: 1
+  units: uk2
+  

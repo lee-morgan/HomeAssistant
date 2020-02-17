@@ -57,7 +57,7 @@ input_select:
       - Just Arrived
       - Just Left
       - Away
-      - Extended Away
+      - Holiday
     initial: Home
 
 sensor:

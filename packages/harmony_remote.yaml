@@ -67,7 +67,7 @@ sensor:
 
 ### After finishing playing on the Xbox, ungroup the speakers ###
 automation:
-  - alias: '[System] Ungroup Sonos After Xbox Activity'
+  - alias: '[Media] Ungroup Sonos After Xbox Activity'
     trigger:
       platform: state 
       entity_id: binary_sensor.playing_xbox 

@@ -1,0 +1,12 @@
+notify:
+  - name: mobile
+    platform: pushover
+    api_key: !secret pushover_api
+    user_key: !secret pushover_userkey 
+
+telegram_bot:
+  - platform: broadcast
+    api_key: !secret telegram_api_key
+    parse_mode: html
+    allowed_chat_ids:
+      - 951511280

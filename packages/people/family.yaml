@@ -3,16 +3,19 @@ person:
     id: lee
     device_trackers:
       - device_tracker.lee_phone
-      - device_tracker.lee_phoe_gps
+      - device_tracker.lee_phone_gps
       - device_tracker.lee_phone_bt
+
   - name: Julie
     id: julie
     device_trackers:
       - device_tracker.julie_phone
+
   - name: Ben
     id: ben 
     device_trackers:
       - device_tracker.ben_phone
+
   - name: Lillie
     id: lillie 
     device_trackers:
@@ -26,5 +29,3 @@ group:
       - person.ben
       - person.julie
       - person.lillie
-
-    

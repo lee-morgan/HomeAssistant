@@ -1,6 +1,0 @@
-telegram_bot:
-  - platform: broadcast
-    api_key: !secret telegram_api_key
-    parse_mode: html
-    allowed_chat_ids:
-      - 951511280

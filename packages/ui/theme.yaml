@@ -76,7 +76,7 @@ frontend:
 #################################################################
 
 automation:
-  - alias: 'Set Theme to Midnight'
+  - alias: '[System] Set Theme to Midnight'
     initial_state: 'on'
     trigger:
     - platform: homeassistant
