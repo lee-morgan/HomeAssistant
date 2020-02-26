@@ -1,5 +1,5 @@
 logger:
-  default: critical
+  default: info
   logs:
     homeassistant.core: fatal
     homeassistant.components.mqtt: warning
