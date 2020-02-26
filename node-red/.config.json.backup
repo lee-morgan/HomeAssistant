@@ -1439,6 +1439,58 @@
      "file": "/opt/node_modules/node-red-node-twitter/27-twitter.js"
     }
    }
+  },
+  "node-red-contrib-light-scheduler": {
+   "name": "node-red-contrib-light-scheduler",
+   "version": "0.0.15",
+   "local": false,
+   "nodes": {
+    "light-scheduler": {
+     "name": "light-scheduler",
+     "types": [
+      "light-scheduler"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-light-scheduler",
+     "file": "/config/node-red/node_modules/node-red-contrib-light-scheduler/light-scheduler.js"
+    },
+    "light-scheduler-filter": {
+     "name": "light-scheduler-filter",
+     "types": [
+      "light-scheduler-filter"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-light-scheduler",
+     "file": "/config/node-red/node_modules/node-red-contrib-light-scheduler/light-scheduler-filter.js"
+    },
+    "light-scheduler-settings": {
+     "name": "light-scheduler-settings",
+     "types": [
+      "light-scheduler-settings"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-light-scheduler",
+     "file": "/config/node-red/node_modules/node-red-contrib-light-scheduler/light-scheduler-settings.js"
+    }
+   }
+  }
+ },
+ "users": {
+  "_": {
+   "editor": {
+    "view": {
+     "view-show-grid": true,
+     "view-snap-grid": true,
+     "view-grid-size": "20",
+     "view-node-status": true,
+     "view-node-show-label": true,
+     "view-show-tips": true
+    }
+   },
+   "menu-menu-item-palette": true
   }
  }
 }
