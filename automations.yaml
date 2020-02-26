@@ -1,6 +1,5 @@
 - id: startup
   alias: '[System] Startup'
-  hide_entity: true
   trigger:
     platform: homeassistant
     event: start
@@ -17,7 +16,7 @@
   - service: python_script.set_state
     data_template:
       entity_id: person.lillie
-      state: Un'known
+      state: Unknown
   - service: python_script.set_state
     data_template:
       entity_id: person.julie
